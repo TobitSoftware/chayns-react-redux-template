@@ -11,14 +11,10 @@ import configureStore from './utils/store';
 // Components
 import App, { HotApp } from './components/App';
 
-// Create redux store
 const store = configureStore();
 
-// Get tapp element
 const tappElement = document.querySelector('.tapp');
 
-// Render App component into tapp element
-// If mode is development the component will be used from hot export of App
 const render = () => {
     ReactDOM.render(
         <Provider store={store}>
@@ -32,8 +28,6 @@ const render = () => {
     );
 };
 
-// Call render function after chayns is ready
 chayns.ready.then(render).catch((error) => {
-    // eslint-disable-next-line no-console
     console.warn('No chayns environment found.', error);
 });
